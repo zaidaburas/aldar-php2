@@ -17,7 +17,7 @@
 //     .reveal { opacity: 1 !important; transform: none !important; }
 // </style>
 
-include 'data.php';
+// include 'data.php';
 include 'header.php';
 include 'sections/hero.php';
 include 'sections/featured.php';
@@ -27,7 +27,7 @@ include 'sections/order.php';
 include 'sections/app.php';
 include 'sections/about.php';
 include 'footer.php';
-include 'data.php';
+// include 'data.php';
 ?>
 <?php
 

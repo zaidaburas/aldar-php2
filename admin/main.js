@@ -1,14 +1,14 @@
 
 
 
-const slidesData = Array.from({ length: 34 }, (_, i) => {
-  const num = String(i + 1).padStart(2, "0");
-  return {
-    image: `images/slide/slide${num}.jpg`,
-    title: `صورة ${i + 1} من معرض الوجبات`,
-    subtitle: "مطاعم الدار دارك"
-  };
-});
+// const slidesData7777 = Array.from({ length: 34 }, (_, i) => {
+//   const num = String(i + 1).padStart(2, "0");
+//   return {
+//     image: `images/slide/slide${num}.jpg`,
+//     title: `صورة ${i + 1} من معرض الوجبات`,
+//     subtitle: "مطاعم الدار دارك"
+//   };
+// });
 
 // const adsSlideData7777 = Array.from({ length: 34 }, (_, i) => {
 //   const num = String(i + 1).padStart(2, "0");
@@ -16,7 +16,7 @@ const slidesData = Array.from({ length: 34 }, (_, i) => {
 //     image: `images/slide/slide${num}.jpg`,
 //     title: `صورة ${i + 1} من معرض الوجبات`,
 //     subtitle: "مطاعم الدار دارك",
-//     label: "مطاعم الدار دارك"
+//     tag: "مطاعم الدار دارك"
 //   };
 // });
 
@@ -34,7 +34,7 @@ const yearNow = document.getElementById("yearNow");
 const adsSlideImage = document.getElementById("adsSlideImage");
 const adsSlideTitle = document.getElementById("adsSlideTitle");
 const adsSlideSubTitle = document.getElementById("adsSlideSubTitle");
-const adsSlideLabel = document.getElementById("adsSlideLabel");
+const adsSlideTag = document.getElementById("adsSlideTag");
 
 const galleryImage = document.getElementById("galleryImage");
 const galleryTitle = document.getElementById("galleryTitle");
@@ -188,7 +188,7 @@ function renderMenuResults(query = "") {
 }
 
 function renderGalleryThumbs() {
-  galleryThumbs.innerHTML = slidesData.map((slide, index) => `
+  galleryThumbs.innerHTML = gallerySlideData.map((slide, index) => `
     <button
       type="button"
       class="${index === currentSlideIndex ? "active" : ""}"
@@ -201,20 +201,20 @@ function renderGalleryThumbs() {
 }
 
 function updateGallery() {
-  const current = slidesData[currentSlideIndex];
+  const current = gallerySlideData[currentSlideIndex];
   const currentHero = adsSlideData[currentHeroSlideIndex];
 
   galleryImage.src = current.image;
   galleryImage.alt = current.title;
   galleryTitle.textContent = current.title;
   gallerySubtitle.textContent = current.subtitle;
-  galleryCounter.textContent = `${currentSlideIndex + 1} / ${slidesData.length}`;
-  galleryProgressBar.style.width = `${((currentSlideIndex + 1) / slidesData.length) * 100}%`;
+  galleryCounter.textContent = `${currentSlideIndex + 1} / ${gallerySlideData.length}`;
+  galleryProgressBar.style.width = `${((currentSlideIndex + 1) / gallerySlideData.length) * 100}%`;
 
   adsSlideImage.src = currentHero.image;
   adsSlideTitle.textContent = currentHero.title;
   adsSlideSubTitle.textContent = currentHero.subtitle;
-  adsSlideLabel.textContent = currentHero.label;
+  adsSlideTag.textContent = currentHero.tag;
 
   [...galleryThumbs.querySelectorAll("button")].forEach((btn, index) => {
     btn.classList.toggle("active", index === currentSlideIndex);
@@ -222,7 +222,7 @@ function updateGallery() {
 }
 
 function goToSlide(index,hero) {
-  currentSlideIndex = (index + slidesData.length) % slidesData.length;
+  currentSlideIndex = (index + gallerySlideData.length) % gallerySlideData.length;
   currentHeroSlideIndex = (hero + adsSlideData.length) % adsSlideData.length;
   updateGallery();
 }
@@ -534,10 +534,10 @@ function showDialog({
   };
 }
 
-function about(){
+function aboutUs(){
   return showDialog({
     title: "حول",
-    message: "مطاعم الدار هي مطاعم يمنية تأسست عام 2013 في مدينة اب اليمنية وتعتبر أحد أكبر المطاعم التي تقدم الأكلات الشعبية. تتكون من 2 فروع و تغطي مناطق كبيرة في مدينة اب ، شارع المعاين والخط الدائري. منذ انطلاقتنا، سعينا في مطاعم الدار لتقديم تجربة طعام فريدة تجمع بين أصالة المطبخ اليمني والعربي وبين الرقي في الخدمة. نلتزم دائماً بتقديم الأفضل لضيوفنا لنكون خيارهم الأول.",
+    message: aboutUsText,
     icon: "❔",
     confirmText: "حسناً"
   });

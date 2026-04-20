@@ -1,11 +1,16 @@
+<?php
+include 'data.php';
+// echo('<script>');
+// echo('aboutUs='.$about);
+// echo('</script>');
+?>
 <section class="section section-about" id="about">
   <div class="container">
     <div class="about-card glass-card reveal">
       <span class="section-badge">قصتنا</span>
       <h2>الدار دارك: عنوان الضيافة والمذاق الأصيل</h2>
       <p>
-        مطاعم الدار هي مطاعم يمنية تأسست عام 2013 في مدينة اب اليمنية وتعتبر أحد أكبر المطاعم التي تقدم الأكلات الشعبية. تتكون من 2 فروع و تغطي مناطق كبيرة في مدينة اب ، شارع المعاين والخط الدائري. 
-        منذ انطلاقتنا، سعينا في مطاعم الدار لتقديم تجربة طعام فريدة تجمع بين أصالة المطبخ اليمني والعربي وبين الرقي في الخدمة. نلتزم دائماً بتقديم الأفضل لضيوفنا لنكون خيارهم الأول.
+        <?=$about?>
       </p>
 
       <div class="about-highlights">

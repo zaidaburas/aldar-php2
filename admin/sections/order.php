@@ -1,3 +1,7 @@
+<?php
+include 'data.php';
+
+?>
 <section class="section section-order" id="order0">
   <div class="container order-layout">
     <div class="order-copy glass-card reveal">
@@ -34,13 +38,16 @@
         </div>
       </div>
 
-      <a href="#soon" class="btn btn-primary" >اطلب الآن</a>
+      <a href="<?=$order_url??'#order'?>" class="btn btn-primary" >اطلب الآن</a>
     </div>
 
     <div class="order-visual reveal">
       <div class="visual-stack">
-        <img src="images/slide/slide08.jpg" alt="وجبة مميزة" loading="lazy" />
+        <img src="<?=$featureMeal??'images/slide/slide08.jpg'?>" alt="وجبة مميزة" loading="lazy" />
       </div>
+      <center>
+        <span class="section-badge">وجبة مميزة</span>
+      </center>
     </div>
   </div>
 </section>

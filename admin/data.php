@@ -35,7 +35,7 @@ for ($i=1; $i < 8; $i++) {
         'image'=>'images/slide/slide'.($i<10?('0'.$i):($i)).'.jpg',
         'title'=>'مكونات طازجة، وصفات أصلية، ومذاق فريد'.$i.'',
         'subtitle'=>'نقدم لك قائمة طعام متكاملة محضرة بوصفاتنا الخاصة ومكوناتنا الطازجة، لتعيش تجربة طعام تليق بك.'.$i.'',
-        'label'=>'مطاعم الدار دارك'.$i.''
+        'tag'=>'مطاعم الدار دارك'.$i.''
     ];
 }
 
@@ -47,26 +47,33 @@ for ($i=1; $i <= 34; $i++) {
         'subtitle'=>'مطاعم الدار دارك'.$i.'',
     ];
 }
+
+$order_url="tel:774488875";
+$contact_url="tel:774488875";
+$dev_url="https://wa.me/967779011941";
+$whatsapp_url="https://wa.me/967774488874";
+$featureMeal='images/slide/slide07.jpg';
+$about='مطاعم الدار هي مطاعم يمنية تأسست عام 2013 في مدينة اب اليمنية وتعتبر أحد أكبر المطاعم التي تقدم الأكلات الشعبية. تتكون من 2 فروع و تغطي مناطق كبيرة في مدينة اب ، شارع المعاين والخط الدائري. منذ انطلاقتنا، سعينا في مطاعم الدار لتقديم تجربة طعام فريدة تجمع بين أصالة المطبخ اليمني والعربي وبين الرقي في الخدمة. نلتزم دائماً بتقديم الأفضل لضيوفنا لنكون خيارهم الأول.';
 // echo '<pre>';
-echo count($gallerySlideData);
+// echo count($gallerySlideData);
 // print_r($gallerySlideData);
 // echo '</pre>';
 
-function renderHeroSlideItems($adsSlideData) {
-    echo('<script>');
-    echo 'adsSlideData = Array();';
-    foreach ($adsSlideData as $key => $value) {
-        echo 'val={ title:"'.$value["title"].'", subtitle:"'.$value["subtitle"].'", image:"'.$value["image"].'", label:"'.$value["label"].'" };';
-        echo 'adsSlideData.push(val);';
-    }
-    echo '</script>';
-}
+// function renderHeroSlideItems($adsSlideData) {
+//     echo('<script>');
+//     echo 'adsSlideData = Array();';
+//     foreach ($adsSlideData as $key => $value) {
+//         echo 'val={ title:"'.$value["title"].'", subtitle:"'.$value["subtitle"].'", image:"'.$value["image"].'", tag:"'.$value["tag"].'" };';
+//         echo 'adsSlideData.push(val);';
+//     }
+//     echo '</script>';
+// }
 
 // function renderGallerySlideItems($gallerySlideData) {
 //     echo('<script>');
 //     echo 'gallerySlideData = Array();';
 //     foreach ($gallerySlideData as $key => $value) {
-//         echo 'val={ title:`'.$value["title"].'`, subtitle:`'.$value["subtitle"].'`, image:`'.$value["image"].'` };';
+//         echo 'val={ title:"'.$value["title"].'", subtitle:"'.$value["subtitle"].'", image:"'.$value["image"].'" };';
 //         echo 'gallerySlideData.push(val);';
 //     }
 //     echo '</script>';
@@ -83,157 +90,31 @@ function renderHeroSlideItems($adsSlideData) {
 
 
 
-function renderFeaturedItems($items) {
-    foreach ($items as $item) {
-        echo '
-        <article class="feature-card reveal">
-            <div class="feature-icon">' . htmlspecialchars($item['icon']) . '</div>
-            <h3>' . htmlspecialchars($item['title']) . '</h3>
-            <p>' . htmlspecialchars($item['desc']) . '</p>
-            <span class="feature-tag">' . htmlspecialchars($item['tag']) . '</span>
-        </article>';
-    }
-}
+// function renderFeaturedItems($items) {
+//     foreach ($items as $item) {
+//         echo '
+//         <article class="feature-card reveal">
+//             <div class="feature-icon">' . htmlspecialchars($item['icon']) . '</div>
+//             <h3>' . htmlspecialchars($item['title']) . '</h3>
+//             <p>' . htmlspecialchars($item['desc']) . '</p>
+//             <span class="feature-tag">' . htmlspecialchars($item['tag']) . '</span>
+//         </article>';
+//     }
+// }
 
-function renderMenuItems($items) {
-    echo('<script>');
-    echo 'menuData=Array();';
-    foreach ($items as $key => $value) {
-        echo 'val={title:"'.$value["title"].'",icon:"'.$value["icon"].'",items:Array() };';
-        foreach ($value["items"] as $k => $v) {
-            echo 'val.items.push("'.$v.'");';
-        }
-        echo 'menuData.push(val);';
-    }
-    echo '</script>';
-}
-renderMenuItems($menuData);
-renderHeroSlideItems($adsSlideData);
+// function renderMenuItems($items) {
+//     echo('<script>');
+//     echo 'menuData=Array();';
+//     foreach ($items as $key => $value) {
+//         echo 'val={title:"'.$value["title"].'",icon:"'.$value["icon"].'",items:Array() };';
+//         foreach ($value["items"] as $k => $v) {
+//             echo 'val.items.push("'.$v.'");';
+//         }
+//         echo 'menuData.push(val);';
+//     }
+//     echo '</script>';
+// }
+// renderMenuItems($menuData);
+// renderHeroSlideItems($adsSlideData);
 // renderGallerySlideItems($gallerySlideData);
-?>
-<?php
-// ======================== دوال المنيو ========================
-
-/**
- * عرض تبويبات الأقسام (مثل renderMenuTabs في JS)
- */
-// function renderMenuTabs($menuData, $activeTab, $searchQuery) {
-//     $tabs = array_merge([['title' => 'الكل', 'icon' => '📋']], $menuData);
-//     foreach ($tabs as $tab) {
-//         $activeClass = ($activeTab === $tab['title']) ? 'active' : '';
-//         $url = "?tab=" . urlencode($tab['title']) . "&search=" . urlencode($searchQuery);
-//         echo '<a href="' . $url . '" class="menu-tab ' . $activeClass . '">' . $tab['icon'] . ' ' . htmlspecialchars($tab['title']) . '</a>';
-//     }
-// }
-
-// /**
-//  * فلترة بيانات المنيو حسب التبويب والبحث (مثل getFilteredMenuData في JS)
-//  */
-// function filterMenuData($menuData, $activeTab, $searchQuery) {
-//     // فلترة حسب التبويب
-//     if ($activeTab !== 'الكل') {
-//         $menuData = array_filter($menuData, function($cat) use ($activeTab) {
-//             return $cat['title'] === $activeTab;
-//         });
-//     }
-    
-//     // فلترة حسب البحث
-//     if (!empty($searchQuery)) {
-//         $query = mb_strtolower(trim($searchQuery));
-//         $result = [];
-//         foreach ($menuData as $cat) {
-//             $catTitleLower = mb_strtolower($cat['title']);
-//             $catMatch = (mb_strpos($catTitleLower, $query) !== false);
-            
-//             $matchedItems = array_filter($cat['items'], function($item) use ($query) {
-//                 return mb_strpos(mb_strtolower($item), $query) !== false;
-//             });
-            
-//             if ($catMatch) {
-//                 // إذا كان اسم القسم يحتوي على الكلمة، نعرض القسم كاملاً
-//                 $result[] = $cat;
-//             } elseif (!empty($matchedItems)) {
-//                 // إذا كانت هناك عناصر مطابقة فقط، ننشئ قسمًا جديدًا يحتوي على العناصر المطابقة
-//                 $newCat = $cat;
-//                 $newCat['items'] = array_values($matchedItems);
-//                 $result[] = $newCat;
-//             }
-//         }
-//         return $result;
-//     }
-    
-//     return array_values($menuData);
-// }
-
-// /**
-//  * تظليل النص المطابق لكلمة البحث (مثل highlightText في JS)
-//  */
-// function highlightText($text, $keyword) {
-//     if (empty($keyword)) {
-//         return htmlspecialchars($text);
-//     }
-//     $safeKeyword = preg_quote($keyword, '/');
-//     return preg_replace("/($safeKeyword)/iu", '<mark>$1</mark>', htmlspecialchars($text));
-// }
-
-// /**
-//  * عرض نتائج المنيو (مثل renderMenuResults في JS)
-//  */
-// function renderMenuResults($filteredMenuData, $searchQuery) {
-//     if (empty($filteredMenuData)) {
-//         echo '<div class="empty-state">';
-//         echo '<h3>لا توجد نتائج</h3>';
-//         echo '<p>جرّب كلمة بحث مختلفة أو اختر قسمًا آخر من التبويبات.</p>';
-//         echo '</div>';
-//         return;
-//     }
-    
-//     foreach ($filteredMenuData as $category) {
-//         echo '<section class="menu-category-block reveal">';
-        
-//         // رأس القسم
-//         echo '<div class="menu-category-head">';
-//         echo '<div class="menu-category-title">';
-//         echo '<div class="menu-category-icon">' . $category['icon'] . '</div>';
-//         echo '<div>';
-//         echo '<h3>' . highlightText($category['title'], $searchQuery) . '</h3>';
-//         echo '<p>اكتشف أشهى الأصناف في هذا القسم واختر وجبتك المفضلة</p>';
-//         echo '</div>';
-//         echo '</div>';
-//         echo '<div class="menu-category-count">' . count($category['items']) . ' صنف</div>';
-//         echo '</div>';
-        
-//         // شبكة العناصر
-//         echo '<div class="menu-items-grid">';
-//         foreach ($category['items'] as $item) {
-//             echo '<article class="menu-item-card">';
-//             echo '<div class="menu-item-bullet"></div>';
-//             echo '<span>' . highlightText($item, $searchQuery) . '</span>';
-//             echo '</article>';
-//         }
-//         echo '</div>';
-        
-//         echo '</section>';
-//     }
-// }
-
-// /**
-//  * حساب ملخص الأقسام والعناصر (مثل تحديث menuSummary في JS)
-//  */
-// function getMenuSummary($filteredMenuData) {
-//     $totalCategories = count($filteredMenuData);
-//     $totalItems = array_sum(array_map(function($cat) { 
-//         return count($cat['items']); 
-//     }, $filteredMenuData));
-//     return $totalCategories . ' قسم / ' . $totalItems . ' صنف';
-// }
-
-// /**
-//  * حساب إجمالي عدد الأصناف في المنيو بالكامل (لإحصائيات الهيرو)
-//  */
-// function getTotalItems($menuData) {
-//     return array_sum(array_map(function($cat) {
-//         return count($cat['items']);
-//     }, $menuData));
-// }
 ?>

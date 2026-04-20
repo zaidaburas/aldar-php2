@@ -1,4 +1,9 @@
-    </main>
+</main>
+<?php
+echo('<script>');
+echo('var aboutUsText="'.$about.'"');
+echo('</script>');
+?>
 
     <footer class="footer" >
       <div class="container footer-grid">
@@ -31,9 +36,9 @@
 
           <div class="footer-box">
             <h4>تواصل معنا</h4>
-            <a onclick="about()">من نحن</a>
-            <a href="tel:774488875">اتصل بنا</a>
-            <a href="https://wa.me/967779011941" target="_blank" rel="noopener">تصميم وتكويد: Z-Soft</a>
+            <a onclick="aboutUs()">من نحن</a>
+            <a href="<?=$contact_url?>">اتصل بنا</a>
+            <a href="<?=$dev_url?>" target="_blank" rel="noopener">تصميم وتكويد: Z-Tech</a>
           </div>
         </div>
       </div>
@@ -41,13 +46,13 @@
       <div class="container footer-bottom">
         <p>© <span id="yearNow"><?php echo date('Y'); ?></span> جميع الحقوق محفوظة مطاعم الدار دارك.</p>
         <div class="footer-designer">
-          <img src="images/za-logo.png" alt="Z-Soft" loading="lazy" />
-          <span>تصميم وتكويد: <a href="https://wa.me/967779011941" target="_blank" rel="noopener">Z-Soft</a></span>
+          <img src="images/ztech-logo.png" alt="Z-Tech" loading="lazy" />
+          <span>تصميم وتكويد: <a href="<?=$dev_url?>" target="_blank" rel="noopener">Z-Tech</a></span>
         </div>
       </div>
     </footer>
 
-    <a class="floating-whatsapp" href="https://wa.me/967774488874" target="_blank" rel="noopener" aria-label="واتساب">
+    <a class="floating-whatsapp" href="<?=$whatsapp_url?>" target="_blank" rel="noopener" aria-label="واتساب">
       <span>💬</span>
     </a>
 

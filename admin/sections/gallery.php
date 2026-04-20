@@ -1,3 +1,24 @@
+<?php
+include 'data.php';
+// $gallerySlideData=[];
+// for ($i=1; $i <= 34; $i++) { 
+//     $gallerySlideData[$i]=[
+//         'image'=>'images/slide/slide'.($i<10?('0'.$i):($i)).'.jpg',
+//         'title'=>'صورة '.$i.' من معرض الوجبات',
+//         'subtitle'=>'مطاعم الدار دارك'.$i.'',
+//     ];
+// }
+function renderGallerySlideItems($gallerySlideData) {
+    echo('<script>');
+    echo 'gallerySlideData = Array();';
+    foreach ($gallerySlideData as $key => $value) {
+        echo 'val={ title:"'.$value["title"].'", subtitle:"'.$value["subtitle"].'", image:"'.$value["image"].'" };';
+        echo 'gallerySlideData.push(val);';
+    }
+    echo '</script>';
+}
+renderGallerySlideItems($gallerySlideData);
+?>
 <section class="section section-gallery" id="gallery">
   <div class="container">
     <div class="section-head reveal">
@@ -22,8 +43,8 @@
         </div>
 
         <div class="gallery-controls">
-          <button type="button" class="slider-btn" id="prevSlide" aria-label="السابق">❯</button>
           <button type="button" class="slider-btn" id="nextSlide" aria-label="التالي">❮</button>
+          <button type="button" class="slider-btn" id="prevSlide" aria-label="السابق">❯</button>
         </div>
 
         <div class="gallery-progress">
